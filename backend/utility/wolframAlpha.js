@@ -2,6 +2,15 @@ const WolframClient = require('node-wolfram-alpha').WolframClient;
 const fs = require('fs');
 const client = new WolframClient('R7EXWX-EYJAPQA9G3');
 
+const axios = require( 'axios' );
+
+const download_image = ( url, image_path ) => axios( { 'url' : url, 'responseType' : 'stream' } ).then( response =>
+{
+    response.data.pipe( fs.createWriteStream( image_path ) );
+
+    return { 'status' : true, 'error' : '' };
+
+}).catch( error => ( { 'status' : false, 'error' : 'Error: ' + error.message } ) );
 
 
 async function callWolframAlpha(name) {
@@ -17,7 +26,6 @@ async function callWolframAlpha(name) {
 
 async function readNames() {
     try {
-
         const uniqueNames = new Set();
 
         const files = fs.readdirSync('./names');
@@ -31,8 +39,6 @@ async function readNames() {
             }
         }
 
-        // console.log(uniqueNames.size);
-
         return Array.from(uniqueNames)
 
     } catch(e) {
@@ -42,6 +48,27 @@ async function readNames() {
 
 
 
+async function saveImages(name, nameObject) {
+    try {
+
+        const pods = nameObject['pods'];
+        const imagePromises = [];
+        for (let i = 0; i < pods.length; i++) {
+
+            const subpods = pods[i]['subpods'];
+
+            for (let j = 0; j < subpods.length; j++) {
+                if (subpods[j].hasOwnProperty('img')) {
+                    imagePromises.push(download_image(subpods[j]['img']['src'], `./results/${name}-${i}-${j}.gif`))
+                }
+            }
+        }
+
+        await Promise.all(imagePromises);
+    } catch (e) {
+        console.log(e);
+    }
+}
 
 
 (async() => {
@@ -50,7 +77,14 @@ async function readNames() {
     for (let i = 0; i < uniqueNames.length; i++) {
         const res = await callWolframAlpha(uniqueNames[i]);
 
+
+        await saveImages(uniqueNames[i], res);
+
+
         fs.writeFileSync('./results/' + uniqueNames[i] + '.txt', JSON.stringify(res));
+
+
+
         console.log('Written: ', uniqueNames[i]);
         break;
     }
