@@ -3,7 +3,7 @@
   height: auto;
 
   .navigationSection {
-    min-width: 200px;
+    min-width: 140px;
     min-height: 400px;
 
     mat-nav-list {
@@ -22,7 +22,7 @@
   }
 
   .nameStats {
-    width: 500px;
+    min-width: 300px;
     margin: 0 0 0 0.5em;
     min-height: 400px;
 

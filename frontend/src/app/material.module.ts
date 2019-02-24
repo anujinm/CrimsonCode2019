@@ -7,7 +7,7 @@ import {
   MatSidenavModule,
   MatListModule,
   MatProgressSpinnerModule,
-  MatSnackBarModule, MatDialogModule, MatTooltipModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule
+  MatSnackBarModule, MatDialogModule, MatTooltipModule, MatCardModule, MatDividerModule, MatFormFieldModule, MatInputModule, MatSelectModule
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
@@ -28,7 +28,8 @@ import {NgModule} from '@angular/core';
     MatDividerModule,
     MatFormFieldModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatSelectModule
   ],
 })
 

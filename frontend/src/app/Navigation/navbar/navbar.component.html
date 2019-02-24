@@ -23,7 +23,7 @@
 </mat-toolbar>
 
 <mat-menu #profileMenu="matMenu">
-  <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/signup">Register</button>
+  <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/register">Register</button>
   <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/login">Login</button>
   <button mat-menu-item *ngIf="userIsAuthenticated" routerLink="/profile">My Account</button>
   <button mat-menu-item *ngIf="userIsAuthenticated" (click)="logout()">Logout</button>

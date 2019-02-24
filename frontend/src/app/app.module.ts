@@ -17,7 +17,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ErrorInterceptor} from './error-interceptor';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from "@angular/forms";
-import {AuthModule} from "./auth/auth.module";
+// import {AuthModule} from "./auth/auth.module";
 import { SearchResultComponent } from './search-result/search-result.component';
 
 @NgModule({
@@ -36,8 +36,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
-    ReactiveFormsModule,
-    AuthModule
+    ReactiveFormsModule
+    // AuthModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
