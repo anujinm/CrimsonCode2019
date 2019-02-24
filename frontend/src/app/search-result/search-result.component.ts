@@ -24,7 +24,7 @@ export class SearchResultComponent implements OnInit {
       this.isLoading = true;
 
       if (queryParams['q']) {
-        this.searchService.searchName(queryParams['q']).then((res) => {
+        this.searchService.searchName(queryParams['q'], queryParams['target']).then((res) => {
           this.name = queryParams['q'].toLowerCase();
           this.Capitalize(this.name);
           this.isLoading = false;

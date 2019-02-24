@@ -25,8 +25,8 @@
 </mat-toolbar>
 
 <mat-menu #languageMenu="matMenu">
-  <button mat-menu-item>English</button>
-  <button mat-menu-item>Монгол</button>
+  <button mat-menu-item (click)="changeLanguage('en')">English</button>
+  <button mat-menu-item (click)="changeLanguage('mn')">Монгол</button>
 </mat-menu>
 
 <mat-menu #profileMenu="matMenu">

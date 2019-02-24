@@ -14,7 +14,7 @@ export class SearchResultService {
     private http: HttpClient
   ) { }
 
-  searchName(name) {
-    return this.http.get<SearchResultModel>(BACKEND_URL + '/' + name).toPromise();
+  searchName(name, target) {
+    return this.http.get<SearchResultModel>(BACKEND_URL + '/' + name + '?target=' + target).toPromise();
   }
 }
