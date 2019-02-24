@@ -49,12 +49,11 @@ async function readNames() {
 (async() => {
     const uniqueNames = await readNames();
 
-    for (let i = 0; i < uniqueNames.length; i++) {
+    for (let i = 17000; i < 17999; i++) {
         const res = await callWolframAlpha(uniqueNames[i]);
 
         fs.writeFileSync('./results/' + uniqueNames[i] + '.txt', JSON.stringify(res));
         console.log('Written: ', uniqueNames[i]);
-        break;
     }
 
 // Query wolfram for 'population of France', but only return the first pod
