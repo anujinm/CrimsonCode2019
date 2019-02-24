@@ -28,7 +28,7 @@ async function callWolframAlpha(name, target) {
         const result = (await client.query('name ' + name))['data']['queryresult'];
         const pods = result['pods'];
 
-        if (target) {
+        if (target && target === 'mn') {
             const translate_promises = [];
 
             for (let i = 0; i < pods.length; i++) {
