@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NameComplexModel} from '../home/home.model';
 import {ProfileService} from './profile.service';
 import {SearchResultModel} from '../search-result/search-result.model';
+import {environment} from '../../environments/environment';
 // import {MatSelectModule} from '@angular/material/select';
 
 @Component({
@@ -15,6 +16,7 @@ export class ProfileComponent implements OnInit {
   chosenContent: SearchResultModel;
   likedNames = ['anujin', 'anna', 'zac'];
   isLoading = false;
+  backEndUrl = environment.backendUrl;
 
   myLikes: NameComplexModel[] = [];
 

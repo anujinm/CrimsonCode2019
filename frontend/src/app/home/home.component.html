@@ -1,4 +1,4 @@
-<div *ngIf="isLoading">
+<div *ngIf="isLoading" class="mat-spinner-center-page">
   <mat-spinner></mat-spinner>
 </div>
 
@@ -10,15 +10,22 @@
   <!--</form>-->
   <mat-card class="container quizCard" >
     <div fxLayoutAlign="center" class="quiz">
+      <div *ngIf="begin === true" fxLayout="column" fxLayoutAlign="center center" class="begin">
+        <p class="animated fadeInDown" fxLayoutAlign="center">Welcome to</p>
+        <img src="assets/images/logo.png" alt="logo" width="100%">
+        <p class="animated fadeInDown" fxLayoutAlign="center">Let's get you started with a quick quiz!</p>
+        <p class="animated fadeInDown" fxLayoutAlign="center">Press right on the names you like or press left</p>
+        <button mat-raised-button color="primary" class="animated fadeInDown" (click)="beginQuiz()">Begin Quiz</button>
+      </div>
 
-      <div fxFlex="20" fxLayoutAlign="center center">
-        <button mat-fab color="white" (click)="dislikeName()"
+      <div *ngIf="begin === false" fxFlex="20" fxLayoutAlign="center center">
+        <button [ngStyle]="{'z-index': 200}" mat-fab color="white" (click)="dislikeName()"
                 [disabled]="isDisabled">
           <mat-icon><i class="material-icons">clear</i></mat-icon>
         </button>
       </div>
 
-      <div fxFlex="60" fxLayoutAlign="center center" class="nameBox">
+      <div *ngIf="begin === false" fxFlex="60" fxLayoutAlign="center center" class="nameBox">
         <div *ngFor="let name of names; let i = index" class="nameStack">
           <div class="animated" [ngClass]="nameIndex <= i - 1 ? animation:''">
             <p [ngStyle]="{'z-index':  i + 1}">{{ name.name }}</p>
@@ -30,7 +37,7 @@
         </div>
       </div>
 
-      <div fxFlex fxLayoutAlign="center center">
+      <div *ngIf="begin === false" fxFlex fxLayoutAlign="center center">
         <button mat-fab (click)="likeName()" [disabled]="isDisabled">
           <mat-icon>favorite</mat-icon>
         </button>

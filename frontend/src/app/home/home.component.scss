@@ -2,7 +2,17 @@
   //flex-direction: column;
   overflow: hidden;
 }
+.begin {
+  margin-top: -60px;
+  p {
+    font-size: 12px;
+    margin: 0;
 
+  }
+  button {
+    margin-top: 10px;
+  }
+}
 .quizCard {
   margin: 50px 0 50px 0;
   width: 300px;
@@ -45,8 +55,7 @@
     //position: absolute;
     background: #ffffff;
     color: black;
-    padding: 10px;
-    margin: 30px;
+    padding: 30px;
   }
   position: absolute;
   //background: #ffffff;

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
+import { FooterComponent } from './navigation/footer/footer.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -21,6 +22,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
   declarations: [
     AppComponent,
     NavbarComponent,
+    FooterComponent,
     HomeComponent,
     ErrorComponent,
     ProfileComponent,

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   isDisabled = false;
   nameIndex = 0;
   animation = '';
+  begin = true;
   // nameList = [
   //   'anujin',
   //   'tsenguun',
@@ -56,6 +57,9 @@ export class HomeComponent implements OnInit {
     if (this.nameIndex === -1) {
       this.isDisabled = true;
     }
+  }
+  beginQuiz() {
+    this.begin = false;
   }
   // dislike(index)  {
   //   this.nameIndex += 1;

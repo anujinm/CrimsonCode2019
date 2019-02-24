@@ -1,5 +1,5 @@
 
-<div *ngIf="isLoading">
+<div *ngIf="isLoading" class="mat-spinner-center-page">
   <mat-spinner></mat-spinner>
 </div>
 
@@ -17,15 +17,32 @@
       </div>
     </mat-card>
     <mat-form-field fxHide fxShow.lt-sm>
-      <mat-select placeholder="name">
+      <mat-select placeholder="name" (selectionChange)="getStats($event.value)">
         <mat-option *ngFor="let name of myLikes" [value]="name.name">{{name.name}}</mat-option>
       </mat-select>
     </mat-form-field>
-    <div>
-      <mat-card class="nameStats">
-        <p>Stats about name: {{chosenContent | json}}</p>
+
+    <div fxLayout="column" *ngIf="!isLoading" fxLayout.lt-sm="center center">
+      <mat-card>
+        <div *ngFor="let pod of chosenContent.pods; let i = index">
+          <div *ngIf="pod.subpods[0].plaintext.length !== 0">
+            <h4>{{pod.title}}:</h4>
+            <p class="desc">{{pod.subpods[0].plaintext}}</p>
+          </div>
+
+          <div *ngIf="pod.subpods[0].plaintext.length === 0">
+            <h4>{{pod.title}}:</h4>
+            <!--<img src="http://localhost:3000/pictures/Mary-4-0.gif" alt="graph">-->
+            <img [src]="backEndUrl + 'pictures/' + chosenName + '-' + i + '-0.gif'" alt="graph">
+          </div>
+        </div>
       </mat-card>
     </div>
+    <!--<div>-->
+      <!--<mat-card class="nameStats">-->
+        <!--<p>Stats about name: {{chosenContent | json}}</p>-->
+      <!--</mat-card>-->
+    <!--</div>-->
   </div>
 
 </div>

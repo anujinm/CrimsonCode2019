@@ -1,14 +1,14 @@
 
-<div *ngIf="isLoading">
-  Loading...
+<div *ngIf="isLoading" class="mat-spinner-center-page">
+  <mat-spinner></mat-spinner>
 </div>
 
-<div fxLayout="column" *ngIf="!isLoading">
+<div fxLayout="column" *ngIf="!isLoading" class="body">
   <mat-card>
     <div *ngFor="let pod of result.pods; let i = index">
       <div *ngIf="pod.subpods[0].plaintext.length !== 0">
         <h4>{{pod.title}}:</h4>
-        <p>{{pod.subpods[0].plaintext}}</p>
+        <p class="desc">{{pod.subpods[0].plaintext}}</p>
       </div>
 
       <div *ngIf="pod.subpods[0].plaintext.length === 0">
@@ -20,7 +20,7 @@
   </mat-card>
 </div>
 
-<p>{{nameData | json}}</p>
+<!--<p>{{nameData | json}}</p>-->
 
 
 
