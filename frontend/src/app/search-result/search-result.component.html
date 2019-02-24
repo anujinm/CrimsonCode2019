@@ -11,10 +11,10 @@
         <p class="desc">{{pod.subpods[0].plaintext}}</p>
       </div>
 
-      <div *ngIf="pod.subpods[0].plaintext.length === 0">
+      <div *ngIf="pod.subpods[0].plaintext.length === 0" class="graph">
         <h4>{{pod.title}}:</h4>
         <!--<img src="http://localhost:3000/pictures/Mary-4-0.gif" alt="graph">-->
-        <img [src]="backEndUrl + 'pictures/' + name + '-' + i + '-0.gif'" alt="graph">
+        <img [src]="pod.subpods[0].img.src" alt="graph">
       </div>
     </div>
   </mat-card>

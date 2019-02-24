@@ -5,6 +5,9 @@
     </div>
 
     <div fxFlex="50" fxLayout="row" fxLayoutAlign="flex-end center"  fxLayoutAlign.lt-sm="center center">
+      <!--<div fxLex fxhide fxShow.lt-sm>-->
+        <!--<button mat-button routerLink="/">Home</button>-->
+      <!--</div>-->
       <form class="searchbar" fxLayoutAlign="center center" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
         <mat-form-field>
           <input matInput placeholder="Search name" type="text" formControlName="search">
