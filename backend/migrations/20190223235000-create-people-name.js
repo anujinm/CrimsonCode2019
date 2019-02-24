@@ -9,13 +9,25 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(191)
       },
       rank: {
         type: Sequelize.INTEGER
       },
       fraction: {
         type: Sequelize.INTEGER
+      },
+      gender: {
+        type: Sequelize.STRING(10)
+      },
+      birthYear: {
+        type: Sequelize.INTEGER
+      },
+      birthCount: {
+        type: Sequelize.INTEGER
+      },
+      jsonData: {
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

@@ -6,6 +6,7 @@ import {ThemeService} from '../../services/theme.service';
 import {themes} from '../../global/global.variables';
 import {AuthService} from '../../auth/auth.service';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -21,7 +22,8 @@ export class NavbarComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private themeService: ThemeService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) { }
   changeTheme(theme: string) {
     this.themeService.setTheme(theme);
@@ -31,7 +33,7 @@ export class NavbarComponent implements OnInit {
     this.authService.logout();
   }
   onSubmit() {
-    console.log(this.searchForm.value['search']);
+    this.router.navigate(['search'],{ queryParams: {q: this.searchForm.value['search']}});
   }
   ngOnInit() {
     this.theme = this.themeService.theme;

@@ -8,9 +8,9 @@ import {SearchResultComponent} from './search-result/search-result.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'search-result', component: SearchResultComponent},
   {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
+  {path: 'search', component: SearchResultComponent}
 ];
 
 @NgModule({
