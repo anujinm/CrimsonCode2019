@@ -9,8 +9,9 @@ module.exports.assignLike = async (req, res, next) => {
             PeopleNameId: req.body.PeopleNameId
         };
         await Like.create(assignment);
-        return res.status(201).json({message: 'Badge Assigned Successfully'});
+        return res.status(201).json({message: 'Like Assigned Successfully'});
     } catch (e) {
+        console.log(e);
         return res.status(500).json({message: 'Server error'});
     }
 };
@@ -23,7 +24,6 @@ module.exports.getLikes = async (req, res, next) => {
             attributes: [],
             include: [{
                 model: PeopleName,
-                attributes: ['id', 'name']
             }]
         });
         if (likes) {

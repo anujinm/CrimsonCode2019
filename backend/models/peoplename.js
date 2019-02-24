@@ -7,9 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     gender: DataTypes.STRING,
     birthYear: DataTypes.INTEGER,
     birthCount: DataTypes.INTEGER,
+    jsonData: DataTypes.TEXT,
+
   }, {});
   PeopleName.associate = function(models) {
-    // associations can be defined here
+    PeopleName.hasMany(models.Like);
   };
   return PeopleName;
 };

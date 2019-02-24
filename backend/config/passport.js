@@ -43,7 +43,7 @@ passport.use('login', new LocalStrategy(
             if (user) {
                 const response = await bcrypt.compare(password, user.password);
                 if (response) {
-                    return done(null, {email: user.email, userId: user.id, level: user.level}, {message: 'Logged in Successfully'})
+                    return done(null, {email: user.email, userId: user.id}, {message: 'Logged in Successfully'})
                 }
                 return done(null, false, {message: 'Password did not match'});
             }
@@ -62,12 +62,13 @@ const opts = {
 
 passport.use(new JwtStrategy(opts, async (jwt_payload, done) => {
     try {
-        const user = await User.findOne({where: {id: jwt_payload.userId, email: jwt_payload.email, level: jwt_payload.level}});
+        const user = await User.findOne({where: {id: jwt_payload.userId, email: jwt_payload.email}});
         if (user) {
-            return done(null, {email: user.email, userId: user.id, level: user.level});
+            return done(null, {email: user.email, userId: user.id});
         }
         return done(null, false, {message: 'Invalid Token'});
     } catch (e) {
+        console.log(e);
         return done(e);
     }
 }));

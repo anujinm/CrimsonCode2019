@@ -1,8 +1,11 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-
+const path_join = require('path').join;
 const usersRoutes = require('./routes/user');
 const searchRoutes = require('./routes/search');
+const namesRoutes = require('./routes/name');
+const favoriteRoutes = require('./routes/favorite');
+
 
 const passport = require('passport');
 require('./config/passport');
@@ -24,10 +27,17 @@ app.use((req, res, next) => {
         'GET, POST, PATCH, DELETE, OPTIONS, PUT');
     next();
 });
+
+app.use(express.static(path_join(__dirname, 'public')));
+app.use('/pictures', express.static(path_join(__dirname, 'results')));
+
+
 app.use(passport.initialize());
 
 // Routes
 app.use('/api/user', usersRoutes);
+app.use('/api/name', namesRoutes);
+app.use('/api/like', favoriteRoutes);
 app.use('/api/search', searchRoutes);
 
 
