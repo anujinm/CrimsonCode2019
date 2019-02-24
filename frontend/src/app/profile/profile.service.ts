@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {NameSimpleModel} from '../home/home.model';
+import {NameComplexModel} from '../home/home.model';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../environments/environment';
 
-const BACKEND_URL_Like = environment.apiUrl + '/like';
+const BACKEND_URL_LIKE = environment.apiUrl + '/like';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,9 +13,7 @@ export class ProfileService {
     private http: HttpClient
   ) { }
 
-
-
-  getRandomNames() {
-    return this.http.get<NameSimpleModel[]>(BACKEND_URL_Like).toPromise();
+  getFavoriteNames() {
+    return this.http.get<NameComplexModel[]>(BACKEND_URL_LIKE).toPromise();
   }
 }

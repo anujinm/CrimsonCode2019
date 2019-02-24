@@ -19,7 +19,7 @@
       </div>
 
       <div fxFlex="60" fxLayoutAlign="center center" class="nameBox">
-        <div  *ngFor="let name of names; let i = index" class="nameStack">
+        <div *ngFor="let name of names; let i = index" class="nameStack">
           <div class="animated" [ngClass]="nameIndex <= i - 1 ? animation:''">
             <p [ngStyle]="{'z-index':  i + 1}">{{ name.name }}</p>
           </div>
