@@ -7,10 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { MaterialModule } from './material.module';
 import { HomeComponent } from './home/home.component';
-// import { AuthComponent } from './auth/auth.component';
 import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
 import {ErrorComponent} from './error/error.component';
 import {AuthInterceptor} from './auth/auth-interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -43,6 +40,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ErrorComponent]
 })
 export class AppModule { }
