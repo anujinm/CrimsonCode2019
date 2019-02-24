@@ -1,7 +1,16 @@
+.main {
+  //flex-direction: column;
+  overflow: hidden;
+}
+
 .quizCard {
-  margin: 50px;
-  width: 60%;
-  height: 500px;
+  margin: 50px 0 50px 0;
+  width: 300px;
+  height: 300px;
+  background: url("../../assets/images/octocat2.png");
+  background-size: contain;
+  background-position-y: bottom;
+  background-repeat: no-repeat;
 }
 .quiz {
   height: 100%;
@@ -9,5 +18,35 @@
 }
 
 .nameBox {
-  border:2px solid #f39090;
+  //border:2px solid #f39090;
+  p {
+    color: black;
+  }
+}
+
+.mat-card-active {
+  visibility: visible;
+  //position: absolute;
+  top: 0;
+
+}
+.mat-card-inactive {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+.hide {
+  z-index: -1 !important;
+}
+.nameStack {
+  p {
+    //position: absolute;
+    background: #ffffff;
+    color: black;
+    padding: 10px;
+  }
+  position: absolute;
+  //background: #ffffff;
+  //color: black;
+  //padding: 10px;
 }

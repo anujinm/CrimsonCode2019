@@ -12,3 +12,24 @@ a {
 .primary-header {
   height: 5em;
 }
+img {
+
+}
+.searchbar {
+  button {
+    padding-right: 35px;
+    outline: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  i {
+    color: white;
+  }
+
+  font-size: 13px;
+  ::placeholder {
+    font-size: 11px;
+    opacity: .8;
+  }
+}
