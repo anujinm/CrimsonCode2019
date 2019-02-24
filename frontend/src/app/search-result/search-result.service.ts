@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {environment} from '../../environments/environment';
 import {HttpClient} from '@angular/common/http';
+import {SearchResultModel} from "./search-result.model";
 const BACKEND_URL = environment.apiUrl + '/search';
 
 @Injectable({
@@ -14,6 +15,6 @@ export class SearchResultService {
   ) { }
 
   searchName(name) {
-    return this.http.get(BACKEND_URL + '/' + name).toPromise();
+    return this.http.get<SearchResultModel>(BACKEND_URL + '/' + name).toPromise();
   }
 }

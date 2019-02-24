@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SearchResultService} from './search-result.service';
+import {SearchResultModel} from './search-result.model';
 
 @Component({
   selector: 'app-search-result',
@@ -9,7 +10,7 @@ import {SearchResultService} from './search-result.service';
 })
 export class SearchResultComponent implements OnInit {
   isLoading = false;
-  nameData = {};
+  result: SearchResultModel;
   constructor(
     private route: ActivatedRoute,
     private searchService: SearchResultService,
@@ -22,7 +23,7 @@ export class SearchResultComponent implements OnInit {
       if (queryParams['q']) {
         this.searchService.searchName(queryParams['q']).then((res) => {
           this.isLoading = false;
-          this.nameData = res;
+          this.result = res;
         }).catch(e => {
           console.log(e);
         });
