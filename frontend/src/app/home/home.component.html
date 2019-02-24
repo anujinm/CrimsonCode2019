@@ -1,25 +1,33 @@
-<div fxlayout="column" fxLayoutAlign="center center">
-  <mat-card class="container quizCard">
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <!--<form>-->
+    <!--<mat-form-field>-->
+      <!--<input matInput placeholder="Search name" type="text">-->
+    <!--</mat-form-field>-->
+  <!--</form>-->
+  <mat-card class="container quizCard" >
     <div fxLayoutAlign="center" class="quiz">
 
       <div fxFlex="20" fxLayoutAlign="center center">
-        <button mat-fab color="white" (click)="dislikeName(nameIndex)"
-        [disabled]="isDisabled">
+        <button mat-fab color="white" (click)="dislikeName()"
+                [disabled]="isDisabled">
           <mat-icon><i class="material-icons">clear</i></mat-icon>
         </button>
       </div>
 
-      <div fxFlex="60" fxLayoutAlign="center center" class=" nameBox">
-        <div *ngIf="nameIndex != nameList.length" class="animated bounceInLeft">
-          <p>{{nameList[nameIndex]}}</p>
+      <div fxFlex="60" fxLayoutAlign="center center" class="nameBox">
+        <div  *ngFor="let name of nameList; let i = index" class="nameStack">
+          <div class="animated" [ngClass]="nameIndex <= i - 1 ? animation:''">
+            <p [ngStyle]="{'z-index':  i + 1}">{{ name }}</p>
+          </div>
         </div>
-        <div *ngIf="nameIndex == nameList.length">
-          <button mat-raised-button color="primary" routerLink="/profile">See results</button>
+        <div *ngIf="nameIndex === -1">
+          <p class="animated fadeInDown" fxLayoutAlign="center">Well Done!</p>
+          <button mat-raised-button color="primary" routerLink="/profile" class="animated fadeInDown">See results</button>
         </div>
       </div>
 
       <div fxFlex fxLayoutAlign="center center">
-        <button mat-fab (click)="likeName(nameIndex)" [disabled]="isDisabled">
+        <button mat-fab (click)="likeName()" [disabled]="isDisabled">
           <mat-icon>favorite</mat-icon>
         </button>
       </div>

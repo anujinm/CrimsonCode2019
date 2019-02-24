@@ -1,9 +1,17 @@
 <mat-toolbar color="primary" class="mat-elevation-z5">
-  <mat-toolbar-row fxLayoutAlign="space-between center">
-    <div>
-      <button mat-button routerLink="/">CallMeByMyName</button>
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center" fxLayoutAlign.lt-sm="center center">
+    <div fxLex fxShow fxHide.lt-sm>
+      <img routerLink="/" src="assets/images/logoWhite.png" width="55%" alt="logo">
     </div>
-    <div>
+
+    <div fxFlex="50" fxLayout="row" fxLayoutAlign="flex-end center"  fxLayoutAlign.lt-sm="center center">
+      <form class="searchbar" fxLayoutAlign="center center" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+        <mat-form-field>
+          <input matInput placeholder="Search name" type="text" formControlName="search">
+        </mat-form-field>
+        <button routerLink="/search-result" type="submit"><i class="material-icons">search</i></button>
+      </form>
+
       <button mat-icon-button [matMenuTriggerFor]="themeMenu">
         <mat-icon>color_lens</mat-icon>
       </button>
@@ -18,7 +26,6 @@
   <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/signup">Register</button>
   <button mat-menu-item *ngIf="!userIsAuthenticated" routerLink="/auth/login">Login</button>
   <button mat-menu-item *ngIf="userIsAuthenticated" routerLink="/profile">My Account</button>
-  <button mat-menu-item *ngIf="userIsAuthenticated && userLevel >= 7" routerLink="/admin">Admin</button>
   <button mat-menu-item *ngIf="userIsAuthenticated" (click)="logout()">Logout</button>
 </mat-menu>
 

@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   isDisabled = false;
-  nameIndex = 0;
+  nameIndex = 3;
+  zindex;
+  animation = '';
   nameList = [
     'anujin',
     'tsenguun',
@@ -19,22 +21,31 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  likeName(index) {
-    this.nameIndex += 1;
-
-    if (index === this.nameList.length - 1) {
+  likeName() {
+    this.nameIndex--;
+    this.animation = 'fadeOutRight';
+    if (this.nameIndex === - 1) {
       this.isDisabled = true;
     } else {
-    this.likedNames.push(this.nameList[index]);
+    this.likedNames.push(this.nameList[this.nameIndex]);
     console.log(this.likedNames);
     }
   }
-  dislikeName(index) {
-    this.nameIndex += 1;
-
-    if (index === this.nameList.length - 1) {
+  dislikeName() {
+    this.animation = 'fadeOutLeft';
+    this.nameIndex--;
+    if (this.nameIndex === -1) {
       this.isDisabled = true;
-    } else {
     }
   }
+  // dislike(index)  {
+  //   this.nameIndex += 1;
+  //   if (index === this.nameList.length - 1) {
+  //     this.isDisabled = true;
+  //   } else {
+  //   }
+  //   return () => {
+  //     alert('hello');
+  //   };
+  // }
 }
