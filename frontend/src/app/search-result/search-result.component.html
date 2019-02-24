@@ -5,13 +5,23 @@
 
 <div fxLayout="column" *ngIf="!isLoading">
   <mat-card>
-    <div *ngFor="let pod of result.pods">
-      <p>{{pod.title}}: {{pod.subpods[0].plaintext}}</p>
+    <div *ngFor="let pod of result.pods; let i = index">
+      <div *ngIf="pod.subpods[0].plaintext.length !== 0">
+        <h4>{{pod.title}}:</h4>
+        <p>{{pod.subpods[0].plaintext}}</p>
+      </div>
+
+      <div *ngIf="pod.subpods[0].plaintext.length === 0">
+        <h4>{{pod.title}}:</h4>
+        <!--<img src="http://localhost:3000/pictures/Mary-4-0.gif" alt="graph">-->
+        <img [src]="backEndUrl + 'pictures/' + name + '-' + i + '-0.gif'" alt="graph">
+      </div>
     </div>
   </mat-card>
 </div>
 
-<!--<p>{{nameData | json}}</p>-->
+<p>{{nameData | json}}</p>
+
 
 
 

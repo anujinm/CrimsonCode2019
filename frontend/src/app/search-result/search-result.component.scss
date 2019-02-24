@@ -1,0 +1,20 @@
+@import '~@angular/material/theming';
+@mixin result-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  h4 {
+    margin: 0;
+    font-weight: 500;
+    color: mat-color($primary, 200);
+  }
+}
+
+p {
+  font-size: 12px;
+  text-indent: 20px;
+  margin: 5px;
+}
+
+img {
+  margin: 5px;
+}

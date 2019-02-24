@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {SearchResultService} from './search-result.service';
 import {SearchResultModel} from './search-result.model';
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-search-result',
@@ -11,6 +12,8 @@ import {SearchResultModel} from './search-result.model';
 export class SearchResultComponent implements OnInit {
   isLoading = false;
   result: SearchResultModel;
+  backEndUrl = environment.backendUrl;
+  name = '';
   constructor(
     private route: ActivatedRoute,
     private searchService: SearchResultService,
@@ -22,6 +25,8 @@ export class SearchResultComponent implements OnInit {
 
       if (queryParams['q']) {
         this.searchService.searchName(queryParams['q']).then((res) => {
+          this.name = queryParams['q'].toLowerCase();
+          this.Capitalize(this.name);
           this.isLoading = false;
           this.result = res;
         }).catch(e => {
@@ -30,6 +35,9 @@ export class SearchResultComponent implements OnInit {
       }
 
     });
+  }
+  Capitalize(name) {
+    this.name = name.charAt(0).toUpperCase() + name.slice(1);
   }
 
 }
