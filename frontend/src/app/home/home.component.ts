@@ -61,14 +61,4 @@ export class HomeComponent implements OnInit {
   beginQuiz() {
     this.begin = false;
   }
-  // dislike(index)  {
-  //   this.nameIndex += 1;
-  //   if (index === this.nameList.length - 1) {
-  //     this.isDisabled = true;
-  //   } else {
-  //   }
-  //   return () => {
-  //     alert('hello');
-  //   };
-  // }
 }

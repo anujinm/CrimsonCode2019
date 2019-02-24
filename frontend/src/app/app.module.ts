@@ -14,7 +14,7 @@ import {AuthInterceptor} from './auth/auth-interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {ErrorInterceptor} from './error-interceptor';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ReactiveFormsModule} from "@angular/forms";
+import {ReactiveFormsModule} from '@angular/forms';
 // import {AuthModule} from "./auth/auth.module";
 import { SearchResultComponent } from './search-result/search-result.component';
 import { ServiceWorkerModule } from '@angular/service-worker';

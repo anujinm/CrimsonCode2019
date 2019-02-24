@@ -3,18 +3,14 @@
 </div>
 
 <div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="!isLoading">
-  <!--<form>-->
-    <!--<mat-form-field>-->
-      <!--<input matInput placeholder="Search name" type="text">-->
-    <!--</mat-form-field>-->
-  <!--</form>-->
   <mat-card class="container quizCard" >
     <div fxLayoutAlign="center" class="quiz">
       <div *ngIf="begin === true" fxLayout="column" fxLayoutAlign="center center" class="begin">
         <p class="animated fadeInDown" fxLayoutAlign="center">Welcome to</p>
         <img src="assets/images/logo.png" alt="logo" width="100%">
         <p class="animated fadeInDown" fxLayoutAlign="center">Let's get you started with a quick quiz!</p>
-        <p class="animated fadeInDown" fxLayoutAlign="center">Press right on the names you like or press left</p>
+        <p class="animated fadeInDown" fxLayoutAlign="center">Press <i class="material-icons">favorite</i> on the names you like</p>
+        <p class="animated fadeInDown" fxLayoutAlign="center"> or press <i class="material-icons">clear</i> on the names you don't like.</p>
         <button mat-raised-button color="primary" class="animated fadeInDown" (click)="beginQuiz()">Begin Quiz</button>
       </div>
 
