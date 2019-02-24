@@ -7,7 +7,7 @@
   margin: 50px 0 50px 0;
   width: 300px;
   height: 300px;
-  background: url("../../assets/images/octocat.png");
+  background: url("../../assets/images/octocat2.png");
   background-size: contain;
   background-position-y: bottom;
   background-repeat: no-repeat;
@@ -19,6 +19,9 @@
 
 .nameBox {
   //border:2px solid #f39090;
+  p {
+    color: black;
+  }
 }
 
 .mat-card-active {
