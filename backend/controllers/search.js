@@ -31,8 +31,6 @@ async function callWolframAlpha(name, target) {
         if (target) {
             const translate_promises = [];
 
-
-
             for (let i = 0; i < pods.length; i++) {
                 translate_promises.push(translate_api(pods[i]['title'], target));
 
