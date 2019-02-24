@@ -17,6 +17,8 @@ import {FlexLayoutModule} from '@angular/flex-layout';
 import {ReactiveFormsModule} from "@angular/forms";
 // import {AuthModule} from "./auth/auth.module";
 import { SearchResultComponent } from './search-result/search-result.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,8 @@ import { SearchResultComponent } from './search-result/search-result.component';
     MaterialModule,
     HttpClientModule,
     FlexLayoutModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
     // AuthModule
   ],
   providers: [
