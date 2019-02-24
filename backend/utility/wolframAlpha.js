@@ -8,7 +8,6 @@ async function callWolframAlpha(name) {
     try {
 
         const result = await client.query('name ' + name);
-
         return result['data']['queryresult'];
 
     } catch(e) {
@@ -30,7 +29,6 @@ async function readNames() {
             for (let i = 0; i < names.length; i++) {
                 uniqueNames.add(names[i]);
             }
-
         }
 
         // console.log(uniqueNames.size);
