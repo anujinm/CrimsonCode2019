@@ -7,10 +7,10 @@ import {SearchResultComponent} from './search-result/search-result.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
+  {path: 'search', component: SearchResultComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
   { path: '**', redirectTo: '' },
-  {path: 'search', component: SearchResultComponent}
 ];
 
 @NgModule({

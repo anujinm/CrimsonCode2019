@@ -1,6 +1,6 @@
 
 <div fxLayout="column" fxLayoutAlign="center center">
-  <form [formGroup]="accountInfo" (ngSubmit)="onSubmit()" fxLayout="column">
+  <form [formGroup]="accountInfo" (ngSubmit)="submitForm()" fxLayout="column">
     <img src="../../../assets/images/logo.png" title="Logo">
     <mat-form-field>
       <input matInput placeholder="Email" formControlName="email" type="text">

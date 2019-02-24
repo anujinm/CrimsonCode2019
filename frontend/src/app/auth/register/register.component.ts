@@ -18,7 +18,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     // private titleService: TitleService,
     private authService: AuthService,
-    // private snackBar: MatSnackBar,
+    private snackBar: MatSnackBar,
     private router: Router
   ) { }
 
@@ -29,6 +29,7 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(3)]]
     });
   }
+
   submitForm() {
     const a_info = this.accountInfo.value;
     this.isLoading = true;
@@ -40,15 +41,14 @@ export class RegisterComponent implements OnInit {
     this.authService.createUser(user).then((res) => {
       this.isLoading = false;
       if (res['message'] === 'User created!') {
-        // this.snackBar.open('Та амжилттай бүртгүүлсэн!', 'Done', {
-        //   duration: 3000
-        // });
+        this.snackBar.open('User Created!', 'Done', {
+          duration: 3000
+        });
         this.router.navigate(['/auth/login']);
       }
 
     }).catch(() => {
       this.authService.setAuthListener(false);
-      this.authService.setLevelListener(0);
       this.isLoading = false;
     });
   }

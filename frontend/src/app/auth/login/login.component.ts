@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
+import {Subscription} from 'rxjs';
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: 'app-login',
@@ -9,24 +11,25 @@ import {AuthService} from '../auth.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  // private authStatusSub: Subscription;
+  private authStatusSub: Subscription;
   isLoading = false;
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
+    private snackbar: MatSnackBar
   ) { }
 
   ngOnInit() {
-    // this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
-    //   authStatus => {
-    //     this.isLoading = false;
-    //     if (authStatus) {
-    //       this.snackbar.open('Та амжилттай нэвтрэн орлоо', 'Done', {
-    //         duration: 3000
-    //       });
-    //     }
-    //   }
-    // );
+    this.authStatusSub = this.authService.getAuthStatusListener().subscribe(
+      authStatus => {
+        this.isLoading = false;
+        if (authStatus) {
+          this.snackbar.open('Logged In!', 'Done', {
+            duration: 3000
+          });
+        }
+      }
+    );
     this.loginForm = this.fb.group({
       email: ['', [
         Validators.required,

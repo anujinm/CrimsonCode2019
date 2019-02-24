@@ -1,4 +1,8 @@
-<div fxLayout="column" fxLayoutAlign="space-around center">
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div fxLayout="column" fxLayoutAlign="space-around center" *ngIf="!isLoading">
   <!--<form>-->
     <!--<mat-form-field>-->
       <!--<input matInput placeholder="Search name" type="text">-->
@@ -15,9 +19,9 @@
       </div>
 
       <div fxFlex="60" fxLayoutAlign="center center" class="nameBox">
-        <div  *ngFor="let name of nameList; let i = index" class="nameStack">
+        <div  *ngFor="let name of names; let i = index" class="nameStack">
           <div class="animated" [ngClass]="nameIndex <= i - 1 ? animation:''">
-            <p [ngStyle]="{'z-index':  i + 1}">{{ name }}</p>
+            <p [ngStyle]="{'z-index':  i + 1}">{{ name.name }}</p>
           </div>
         </div>
         <div *ngIf="nameIndex === -1">

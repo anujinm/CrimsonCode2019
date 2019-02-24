@@ -1,6 +1,6 @@
 import {
-  MatButtonModule, MatDatepickerModule,
-  MatFormFieldModule, MatInputModule, MatNativeDateModule, MatSelectModule, MatStepperModule
+  MatButtonModule,
+  MatFormFieldModule, MatInputModule,
 } from '@angular/material';
 import {NgModule} from '@angular/core';
 
@@ -9,10 +9,6 @@ import {NgModule} from '@angular/core';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatStepperModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatSelectModule
   ],
 })
 
