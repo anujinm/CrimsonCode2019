@@ -12,6 +12,7 @@
   background-position-y: bottom;
   background-repeat: no-repeat;
 }
+
 .quiz {
   height: 100%;
   align-items: center;
@@ -38,12 +39,14 @@
 .hide {
   z-index: -1 !important;
 }
+
 .nameStack {
   p {
     //position: absolute;
     background: #ffffff;
     color: black;
     padding: 10px;
+    margin: 30px;
   }
   position: absolute;
   //background: #ffffff;

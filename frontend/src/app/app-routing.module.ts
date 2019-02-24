@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'search', component: SearchResultComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'auth', loadChildren: './auth/auth.module#AuthModule'},
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

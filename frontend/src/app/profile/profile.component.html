@@ -1,24 +1,29 @@
-<div>
+
+<div *ngIf="isLoading">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="!isLoading">
   <div class="resultBox" fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign.lt-sm="center center">
     <mat-card class="navigationSection" fxShow fxHide.lt-sm>
       <div fxLayoutAlign="center center">
         <mat-nav-list>
-          <mat-list-item *ngFor="let name of likedNames"
-                         [ngClass]="chosenName == name ? 'mat-list-item-active':''"
-                         (click)="getStats(name)">
-            <a>{{ name }}</a>
+          <mat-list-item *ngFor="let name of myLikes"
+                         [ngClass]="chosenName === name.name ? 'mat-list-item-active':''"
+                         (click)="getStats(name.name)">
+            <a>{{ name.name }}</a>
           </mat-list-item>
         </mat-nav-list>
       </div>
     </mat-card>
     <mat-form-field fxHide fxShow.lt-sm>
       <mat-select placeholder="name">
-        <mat-option *ngFor="let name of likedNames" [value]="name">{{name}}</mat-option>
+        <mat-option *ngFor="let name of myLikes" [value]="name.name">{{name.name}}</mat-option>
       </mat-select>
     </mat-form-field>
     <div>
       <mat-card class="nameStats">
-        <p>Stats about name: {{chosenName}}</p>
+        <p>Stats about name: {{chosenContent | json}}</p>
       </mat-card>
     </div>
   </div>

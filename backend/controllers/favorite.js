@@ -27,7 +27,12 @@ module.exports.getLikes = async (req, res, next) => {
             }]
         });
         if (likes) {
-            return res.status(200).json(likes.map(b => b.PeopleName));
+            const editedLikes = likes.map(b => b.PeopleName);
+            for (let i = 0; i < likes.length; i++) {
+                editedLikes[i]['jsonData'] = JSON.parse(editedLikes[i]['jsonData']);
+            }
+
+            return res.status(200).json(editedLikes);
         } else {
             return res.status(200).json([]);
         }

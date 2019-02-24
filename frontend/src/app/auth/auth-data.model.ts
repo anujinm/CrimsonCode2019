@@ -12,5 +12,4 @@ export class AuthTokenModel {
   token: string;
   expiresIn: number;
   userId: number;
-  level: number;
 }
