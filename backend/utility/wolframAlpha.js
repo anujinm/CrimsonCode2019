@@ -15,7 +15,6 @@ const download_image = ( url, image_path ) => axios( { 'url' : url, 'responseTyp
 
 async function callWolframAlpha(name) {
     try {
-
         const result = await client.query('name ' + name);
         return result['data']['queryresult'];
 

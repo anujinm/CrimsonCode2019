@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const usersRoutes = require('./routes/user');
-const postsRoutes = require('./routes/post');
+const searchRoutes = require('./routes/search');
 
 const passport = require('passport');
 require('./config/passport');
@@ -28,7 +28,8 @@ app.use(passport.initialize());
 
 // Routes
 app.use('/api/user', usersRoutes);
-// app.use('/api/post', postsRoutes);
+app.use('/api/search', searchRoutes);
+
 
 
 console.log('Username:', process.env.CC2019_MYSQL_USER);
