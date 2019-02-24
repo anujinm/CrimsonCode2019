@@ -1,0 +1,11 @@
+{
+  "env": {
+    "CC2019_JWT_KEY": "S7UYTBT8s5FCRZyUpiKh",
+    "CC2019_MYSQL_USER": "root",
+    "CC2019_MYSQL_PASSWORD": "Pizda123$",
+    "CC2019_MYSQL_DATABASE": "names_backend",
+    "CC2019_MYSQL_HOST": "35.236.54.90",
+    "NODE_ENV": "development",
+    "CC2019_NODE_ENV": "development"
+  }
+}
