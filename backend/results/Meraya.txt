@@ -1,0 +1,1 @@
+{"success":false,"error":false,"numpods":0,"datatypes":"","timedout":"","timedoutpods":"","timing":3.991,"parsetiming":0.314,"parsetimedout":false,"recalculate":"","id":"MSPa142310bcd9dcd315159400002hi2ch2b7eeci204","host":"http://www5a.wolframalpha.com","server":"56","related":"","version":"2.6","didyoumeans":{"score":"0.327182","level":"medium","val":"name"}}
