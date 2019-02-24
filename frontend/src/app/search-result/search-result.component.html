@@ -1,8 +1,17 @@
-<p>
-  search-result works!
-</p>
 
-<p>{{nameData | json}}</p>
+<div *ngIf="isLoading">
+  Loading...
+</div>
+
+<div fxLayout="column" *ngIf="!isLoading">
+  <mat-card>
+    <div *ngFor="let pod of result.pods">
+      <p>{{pod.title}}: {{pod.subpods[0].plaintext}}</p>
+    </div>
+  </mat-card>
+</div>
+
+<!--<p>{{nameData | json}}</p>-->
 
 
 
