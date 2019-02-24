@@ -1,0 +1,32 @@
+.resultBox {
+  margin: 50px;
+  height: auto;
+
+  .navigationSection {
+    min-width: 200px;
+    min-height: 400px;
+
+    mat-nav-list {
+      width: -webkit-fill-available;
+      width: 100%;
+      a {
+        cursor: pointer;
+      }
+    }
+
+    .mat-list-item-active {
+      font-weight: 500;
+      color: #f50057 !important;
+      background: rgba(0, 0, 0, 0.04);
+    }
+  }
+
+  .nameStats {
+    width: 500px;
+    margin: 0 0 0 0.5em;
+    min-height: 400px;
+
+  }
+}
+
+

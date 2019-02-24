@@ -1,0 +1,22 @@
+@import '~@angular/material/theming';
+@import 'component-themes';
+@import 'theme_variables';
+
+@include mat-core();
+
+$theme: mat-light-theme($primary, $accent, $warn);
+$yellow-dark-theme: mat-dark-theme($yellow-dark-primary, $yellow-dark-accent, $yellow-dark-warn);
+$unicorn-dark-theme: mat-dark-theme($unicorn-dark-primary, $unicorn-dark-accent, $unicorn-dark-warn);
+
+@include angular-material-theme($theme);
+@include component-themes($theme);
+
+.yellow-dark-theme {
+  @include angular-material-theme($yellow-dark-theme);
+  @include component-themes($yellow-dark-theme);
+}
+
+.unicorn-dark-theme {
+  @include angular-material-theme($unicorn-dark-theme);
+  @include component-themes($unicorn-dark-theme);
+}

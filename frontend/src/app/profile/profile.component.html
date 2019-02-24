@@ -1,3 +1,22 @@
-<p>
-  profile works!
-</p>
+<div>
+  <div class="resultBox" fxLayout="row" [fxLayout.lt-md]="column">
+    <mat-card class="navigationSection">
+      <div fxLayoutAlign="center center">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let name of likedNames"
+                         [ngClass]="chosenName == name ? 'mat-list-item-active':''"
+                         (click)="getStats(name)">
+            <a>{{ name }}</a>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </mat-card>
+
+    <div>
+      <mat-card class="nameStats">
+        <p>Stats about name: {{chosenName}}</p>
+      </mat-card>
+    </div>
+  </div>
+
+</div>

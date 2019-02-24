@@ -1,9 +1,14 @@
-<div>
+<div [ngClass]="{
+    'yellow-dark-theme': (theme | async) === 'yellow-dark-theme',
+    'unicorn-dark-theme': (theme | async) === 'unicorn-dark-theme'
+  }">
   <mat-sidenav-container>
     <mat-sidenav-content>
       <app-navbar></app-navbar>
+      <main>
+        <router-outlet></router-outlet>
+      </main>
     </mat-sidenav-content>
   </mat-sidenav-container>
 
 </div>
-<router-outlet></router-outlet>

@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
+  nameOptions = 'anujin';
+  chosenName = 'anujin';
+  likedNames = ['anujin', 'anna', 'zac'];
   constructor() { }
 
   ngOnInit() {
   }
-
+  getStats(name) {
+    this.chosenName = name;
+    console.log('getStats clicked!');
+  }
 }
