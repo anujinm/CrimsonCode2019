@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   isDisabled = false;
   nameIndex = 0;
   animation = '';
+  begin = true;
   // nameList = [
   //   'anujin',
   //   'tsenguun',
@@ -57,14 +58,7 @@ export class HomeComponent implements OnInit {
       this.isDisabled = true;
     }
   }
-  // dislike(index)  {
-  //   this.nameIndex += 1;
-  //   if (index === this.nameList.length - 1) {
-  //     this.isDisabled = true;
-  //   } else {
-  //   }
-  //   return () => {
-  //     alert('hello');
-  //   };
-  // }
+  beginQuiz() {
+    this.begin = false;
+  }
 }

@@ -1,10 +1,32 @@
 .resultBox {
   margin: 50px;
   height: auto;
+  @import '~@angular/material/theming';
+  @mixin result-theme($theme) {
+    $primary: map-get($theme, primary);
+
+    h4 {
+      margin: 0;
+      font-weight: 500;
+      color: mat-color($primary, 200);
+    }
+  }
+
+  .desc {
+    font-size: 14px;
+    text-indent: 20px;
+    margin: 5px;
+  }
+
+  img {
+    margin: 5px;
+    width: 100%;
+  }
 
   .navigationSection {
     min-width: 140px;
     min-height: 400px;
+    margin-right: 10px;
 
     mat-nav-list {
       width: -webkit-fill-available;

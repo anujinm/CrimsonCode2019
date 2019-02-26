@@ -16,6 +16,7 @@ frontend/speed-measure-plugin.json
 
 # IDEs and editors
 frontend/.idea
+backend/.idea
 .project
 .classpath
 .c9/

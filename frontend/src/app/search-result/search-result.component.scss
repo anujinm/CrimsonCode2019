@@ -8,13 +8,16 @@
     color: mat-color($primary, 200);
   }
 }
-
-p {
-  font-size: 12px;
+.body {
+  margin: 50px;
+}
+.desc {
+  font-size: 14px;
   text-indent: 20px;
   margin: 5px;
 }
 
-img {
+.graph img {
   margin: 5px;
+  width: 100%;
 }
