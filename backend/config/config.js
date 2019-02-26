@@ -20,6 +20,9 @@ module.exports = {
         password: process.env.CC2019_MYSQL_PASSWORD,
         database: process.env.CC2019_MYSQL_DATABASE,
         host: process.env.CC2019_MYSQL_HOST,
+        dialectOptions: {
+          socketPath: process.env.CC2019_MYSQL_HOST
+        },
         dialect: "mysql",
         operatorsAliases: false
     }

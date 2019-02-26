@@ -13,6 +13,7 @@ module.exports.getRandomNames = async (req, res, next) => {
             return res.status(200).json([]);
         }
     } catch (e) {
+        console.log(e);
         return res.status(500).json({message: 'Server error'});
     }
 };

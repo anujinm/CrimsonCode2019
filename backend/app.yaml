@@ -1,0 +1,11 @@
+runtime: nodejs
+env: flex
+env_variables:
+  CC2019_JWT_KEY: S7UYTBT8s5FCRZyUpiKh
+  CC2019_MYSQL_USER: root
+  CC2019_MYSQL_PASSWORD: Pizda123$
+  CC2019_MYSQL_DATABASE: names_backend
+  CC2019_MYSQL_HOST: /cloudsql/crimsoncode2019:us-west2:crimson-code-2019
+  CC2019_NODE_ENV: development
+beta_settings:
+  cloud_sql_instances: crimsoncode2019:us-west2:crimson-code-2019
